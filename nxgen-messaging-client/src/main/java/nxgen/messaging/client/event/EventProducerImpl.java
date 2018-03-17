@@ -54,8 +54,8 @@ class EventProducerImpl implements Closeable, EventProducer
         properties.setProperty(ProducerConfig.ACKS_CONFIG, "all");
         properties.setProperty(ProducerConfig.MAX_BLOCK_MS_CONFIG, "" + MAX_TIMEOUT_IN_MILLI);
         properties.setProperty(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, "" + MAX_TIMEOUT_IN_MILLI);
-        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getSimpleName());
-        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, EventSerializer.class.getSimpleName());
+        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, EventSerializer.class.getName());
         kafkaProducer = new KafkaProducer<>(properties);
     }
 
