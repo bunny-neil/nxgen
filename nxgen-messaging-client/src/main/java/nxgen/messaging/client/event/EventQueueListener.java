@@ -1,4 +1,4 @@
-package nxgen.messaging.client;
+package nxgen.messaging.client.event;
 
 import nxgen.messaging.client.config.BrokerProperties;
 import nxgen.messaging.client.serdes.EventDeserializer;
@@ -16,7 +16,7 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class EventQueueListener implements Closeable
+class EventQueueListener implements Closeable
 {
     private String topicName;
     private String groupId;

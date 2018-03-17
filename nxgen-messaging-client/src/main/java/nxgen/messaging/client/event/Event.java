@@ -1,4 +1,6 @@
-package nxgen.messaging.client;
+package nxgen.messaging.client.event;
+
+import nxgen.messaging.client.Message;
 
 public class Event extends Message
 {

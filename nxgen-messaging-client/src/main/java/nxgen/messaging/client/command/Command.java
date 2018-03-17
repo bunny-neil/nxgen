@@ -1,4 +1,6 @@
-package nxgen.messaging.client;
+package nxgen.messaging.client.command;
+
+import nxgen.messaging.client.Message;
 
 public class Command extends Message
 {

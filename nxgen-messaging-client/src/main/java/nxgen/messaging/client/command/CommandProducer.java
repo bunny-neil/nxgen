@@ -1,4 +1,6 @@
-package nxgen.messaging.client;
+package nxgen.messaging.client.command;
+
+import nxgen.messaging.client.event.Event;
 
 import java.util.List;
 import java.util.concurrent.CompletionStage;

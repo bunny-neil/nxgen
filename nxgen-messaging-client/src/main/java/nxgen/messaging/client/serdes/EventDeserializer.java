@@ -1,6 +1,5 @@
 package nxgen.messaging.client.serdes;
 
-import nxgen.messaging.client.Event;
 import nxgen.messaging.client.MessagingException;
 import org.apache.avro.io.BinaryDecoder;
 import org.apache.avro.io.DatumReader;

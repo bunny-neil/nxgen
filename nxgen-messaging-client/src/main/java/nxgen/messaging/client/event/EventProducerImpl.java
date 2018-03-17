@@ -1,4 +1,4 @@
-package nxgen.messaging.client;
+package nxgen.messaging.client.event;
 
 import nxgen.messaging.client.config.BrokerProperties;
 import nxgen.messaging.client.serdes.EventSerializer;
@@ -13,23 +13,30 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.Future;
 
-public class EventProducer implements Closeable
+class EventProducerImpl implements Closeable, EventProducer
 {
     private static final long MAX_TIMEOUT_IN_MILLI = 5000L;
     private String topicName;
     private BrokerProperties brokerProperties;
     private KafkaProducer<String, Event> kafkaProducer;
 
-    public EventProducer(String topicName, BrokerProperties brokerProperties)
+    public EventProducerImpl(String topicName, BrokerProperties brokerProperties)
     {
         this.topicName = topicName;
         this.brokerProperties = brokerProperties;
         this.init();
     }
 
+    @Override
     public Future<RecordMetadata> produceEvent(Event event)
     {
         return kafkaProducer.send(createProducer(event));
+    }
+
+    @Override
+    public void flush()
+    {
+        kafkaProducer.flush();
     }
 
     @Override
@@ -38,11 +45,6 @@ public class EventProducer implements Closeable
         if (kafkaProducer != null) {
             kafkaProducer.close();
         }
-    }
-
-    public void flush()
-    {
-        kafkaProducer.flush();
     }
 
     private void init()
