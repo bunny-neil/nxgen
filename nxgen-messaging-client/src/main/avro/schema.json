@@ -1,0 +1,12 @@
+{
+  "namespace": "nxgen.messaging.client.avro",
+  "type": "record",
+  "name": "Event",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "type", "type": "string"},
+    {"name": "sender", "type": ["null", "bytes"]},
+    {"name": "payload", "type": ["null", "bytes"]},
+    {"name": "dateCreated", "type": "long"}
+  ]
+}
