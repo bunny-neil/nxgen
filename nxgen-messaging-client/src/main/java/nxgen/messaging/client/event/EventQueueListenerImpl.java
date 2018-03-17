@@ -1,7 +1,7 @@
 package nxgen.messaging.client.event;
 
 import nxgen.messaging.client.config.BrokerProperties;
-import nxgen.messaging.client.serdes.EventDeserializer;
+import nxgen.messaging.client.event.serdes.EventDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

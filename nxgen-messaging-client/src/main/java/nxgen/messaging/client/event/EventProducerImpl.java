@@ -1,7 +1,7 @@
 package nxgen.messaging.client.event;
 
 import nxgen.messaging.client.config.BrokerProperties;
-import nxgen.messaging.client.serdes.EventSerializer;
+import nxgen.messaging.client.event.serdes.EventSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;

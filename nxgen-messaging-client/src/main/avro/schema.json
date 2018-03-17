@@ -1,5 +1,5 @@
 {
-  "namespace": "nxgen.messaging.client.avro",
+  "namespace": "nxgen.messaging.client.event.avro",
   "type": "record",
   "name": "Event",
   "fields": [

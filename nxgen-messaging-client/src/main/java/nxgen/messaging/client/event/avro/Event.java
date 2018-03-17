@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package nxgen.messaging.client.avro;
+package nxgen.messaging.client.event.avro;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Event extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6483377665658596492L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Event\",\"namespace\":\"nxgen.messaging.client.avro\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"sender\",\"type\":[\"null\",\"bytes\"]},{\"name\":\"payload\",\"type\":[\"null\",\"bytes\"]},{\"name\":\"dateCreated\",\"type\":\"long\"}]}");
+  private static final long serialVersionUID = -4402667930094297708L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Event\",\"namespace\":\"nxgen.messaging.client.event.avro\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"type\",\"type\":\"string\"},{\"name\":\"sender\",\"type\":[\"null\",\"bytes\"]},{\"name\":\"payload\",\"type\":[\"null\",\"bytes\"]},{\"name\":\"dateCreated\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -190,8 +190,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
    * Creates a new Event RecordBuilder.
    * @return A new Event RecordBuilder
    */
-  public static nxgen.messaging.client.avro.Event.Builder newBuilder() {
-    return new nxgen.messaging.client.avro.Event.Builder();
+  public static nxgen.messaging.client.event.avro.Event.Builder newBuilder() {
+    return new nxgen.messaging.client.event.avro.Event.Builder();
   }
 
   /**
@@ -199,8 +199,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
    * @param other The existing builder to copy.
    * @return A new Event RecordBuilder
    */
-  public static nxgen.messaging.client.avro.Event.Builder newBuilder(nxgen.messaging.client.avro.Event.Builder other) {
-    return new nxgen.messaging.client.avro.Event.Builder(other);
+  public static nxgen.messaging.client.event.avro.Event.Builder newBuilder(nxgen.messaging.client.event.avro.Event.Builder other) {
+    return new nxgen.messaging.client.event.avro.Event.Builder(other);
   }
 
   /**
@@ -208,8 +208,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
    * @param other The existing instance to copy.
    * @return A new Event RecordBuilder
    */
-  public static nxgen.messaging.client.avro.Event.Builder newBuilder(nxgen.messaging.client.avro.Event other) {
-    return new nxgen.messaging.client.avro.Event.Builder(other);
+  public static nxgen.messaging.client.event.avro.Event.Builder newBuilder(nxgen.messaging.client.event.avro.Event other) {
+    return new nxgen.messaging.client.event.avro.Event.Builder(other);
   }
 
   /**
@@ -233,7 +233,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(nxgen.messaging.client.avro.Event.Builder other) {
+    private Builder(nxgen.messaging.client.event.avro.Event.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -261,7 +261,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
      * Creates a Builder by copying an existing Event instance
      * @param other The existing instance to copy.
      */
-    private Builder(nxgen.messaging.client.avro.Event other) {
+    private Builder(nxgen.messaging.client.event.avro.Event other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -298,7 +298,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder setId(java.lang.CharSequence value) {
+    public nxgen.messaging.client.event.avro.Event.Builder setId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -318,7 +318,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder clearId() {
+    public nxgen.messaging.client.event.avro.Event.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -337,7 +337,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'type'.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder setType(java.lang.CharSequence value) {
+    public nxgen.messaging.client.event.avro.Event.Builder setType(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.type = value;
       fieldSetFlags()[1] = true;
@@ -357,7 +357,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'type' field.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder clearType() {
+    public nxgen.messaging.client.event.avro.Event.Builder clearType() {
       type = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -376,7 +376,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'sender'.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder setSender(java.nio.ByteBuffer value) {
+    public nxgen.messaging.client.event.avro.Event.Builder setSender(java.nio.ByteBuffer value) {
       validate(fields()[2], value);
       this.sender = value;
       fieldSetFlags()[2] = true;
@@ -396,7 +396,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'sender' field.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder clearSender() {
+    public nxgen.messaging.client.event.avro.Event.Builder clearSender() {
       sender = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -415,7 +415,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'payload'.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder setPayload(java.nio.ByteBuffer value) {
+    public nxgen.messaging.client.event.avro.Event.Builder setPayload(java.nio.ByteBuffer value) {
       validate(fields()[3], value);
       this.payload = value;
       fieldSetFlags()[3] = true;
@@ -435,7 +435,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'payload' field.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder clearPayload() {
+    public nxgen.messaging.client.event.avro.Event.Builder clearPayload() {
       payload = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -454,7 +454,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'dateCreated'.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder setDateCreated(long value) {
+    public nxgen.messaging.client.event.avro.Event.Builder setDateCreated(long value) {
       validate(fields()[4], value);
       this.dateCreated = value;
       fieldSetFlags()[4] = true;
@@ -474,7 +474,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'dateCreated' field.
       * @return This builder.
       */
-    public nxgen.messaging.client.avro.Event.Builder clearDateCreated() {
+    public nxgen.messaging.client.event.avro.Event.Builder clearDateCreated() {
       fieldSetFlags()[4] = false;
       return this;
     }

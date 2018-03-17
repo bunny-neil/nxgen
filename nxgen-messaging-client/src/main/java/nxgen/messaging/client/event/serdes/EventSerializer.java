@@ -1,4 +1,4 @@
-package nxgen.messaging.client.serdes;
+package nxgen.messaging.client.event.serdes;
 
 import nxgen.messaging.client.MessagingException;
 import nxgen.messaging.client.event.Event;
@@ -32,7 +32,8 @@ public class EventSerializer implements ExtendedSerializer<Event>
     {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         BinaryEncoder encoder = EncoderFactory.get().binaryEncoder(out, null);
-        DatumWriter<nxgen.messaging.client.avro.Event> writer = new SpecificDatumWriter<>(nxgen.messaging.client.avro.Event.getClassSchema());
+        DatumWriter<nxgen.messaging.client.event.avro.Event> writer
+                = new SpecificDatumWriter<>(nxgen.messaging.client.event.avro.Event.getClassSchema());
         try {
             writer.write(toAvroEvent(data), encoder);
             encoder.flush();
@@ -48,9 +49,9 @@ public class EventSerializer implements ExtendedSerializer<Event>
     {
     }
 
-    private nxgen.messaging.client.avro.Event toAvroEvent(Event domainEvent)
+    private nxgen.messaging.client.event.avro.Event toAvroEvent(Event domainEvent)
     {
-        return nxgen.messaging.client.avro.Event.newBuilder()
+        return nxgen.messaging.client.event.avro.Event.newBuilder()
                 .setId(domainEvent.getId())
                 .setType(domainEvent.getType())
                 .setDateCreated(domainEvent.getDateCreated().getTime())

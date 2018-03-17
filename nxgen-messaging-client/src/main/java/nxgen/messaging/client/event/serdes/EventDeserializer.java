@@ -1,4 +1,4 @@
-package nxgen.messaging.client.serdes;
+package nxgen.messaging.client.event.serdes;
 
 import nxgen.messaging.client.MessagingException;
 import nxgen.messaging.client.event.Event;
@@ -30,7 +30,8 @@ public class EventDeserializer implements ExtendedDeserializer<Event>
     public Event deserialize(String topic, byte[] data)
     {
         BinaryDecoder decoder = DecoderFactory.get().binaryDecoder(data, null);
-        DatumReader<nxgen.messaging.client.avro.Event> reader = new SpecificDatumReader<>(nxgen.messaging.client.avro.Event.getClassSchema());
+        DatumReader<nxgen.messaging.client.event.avro.Event> reader
+                = new SpecificDatumReader<>(nxgen.messaging.client.event.avro.Event.getClassSchema());
         try {
             return toDomainEvent(reader.read(null, decoder));
         } catch (IOException e) {
@@ -43,7 +44,7 @@ public class EventDeserializer implements ExtendedDeserializer<Event>
     {
     }
 
-    private Event toDomainEvent(nxgen.messaging.client.avro.Event avroEvent)
+    private Event toDomainEvent(nxgen.messaging.client.event.avro.Event avroEvent)
     {
         Event domainEvent = new Event();
         domainEvent.setId(avroEvent.getId().toString());
