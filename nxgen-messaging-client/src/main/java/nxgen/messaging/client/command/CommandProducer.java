@@ -7,5 +7,5 @@ import java.util.concurrent.CompletionStage;
 
 public interface CommandProducer
 {
-    CompletionStage<List<Event>> produceCommand(Command command, CommandSpecification specification);
+    CompletionStage<List<Event>> produceCommand(Event initEvent, CommandSpecification specification);
 }

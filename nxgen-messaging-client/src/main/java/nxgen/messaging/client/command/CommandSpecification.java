@@ -1,5 +1,10 @@
 package nxgen.messaging.client.command;
 
-public class CommandSpecification
+import java.util.concurrent.TimeUnit;
+
+public interface CommandSpecification
 {
+    long timeout();
+
+    TimeUnit timeUnit();
 }
