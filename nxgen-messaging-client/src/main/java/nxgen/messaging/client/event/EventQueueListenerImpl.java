@@ -25,17 +25,17 @@ class EventQueueListenerImpl implements Closeable, EventQueueListener
     private ExecutorService executorService;
     private KafkaConsumer<String, Event> kafkaConsumer;
 
-    public EventQueueListenerImpl(String topicName, String groupId, BrokerProperties brokerProperties, EventConsumer eventConsumer)
+    EventQueueListenerImpl(String topicName, String groupId, BrokerProperties brokerProperties)
     {
         this.topicName = topicName;
         this.groupId = groupId;
         this.brokerProperties = brokerProperties;
-        this.eventConsumer = eventConsumer;
     }
 
     @Override
-    public void start()
+    public void start(EventConsumer eventConsumer)
     {
+        this.eventConsumer = eventConsumer;
         executorService = Executors.newSingleThreadExecutor(r -> {
             Thread newThread = new Thread(r);
             newThread.setName("event-queue-listener-thread");

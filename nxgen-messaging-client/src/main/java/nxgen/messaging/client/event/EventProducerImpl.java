@@ -20,7 +20,7 @@ class EventProducerImpl implements Closeable, EventProducer
     private BrokerProperties brokerProperties;
     private KafkaProducer<String, Event> kafkaProducer;
 
-    public EventProducerImpl(String topicName, BrokerProperties brokerProperties)
+    EventProducerImpl(String topicName, BrokerProperties brokerProperties)
     {
         this.topicName = topicName;
         this.brokerProperties = brokerProperties;
