@@ -5,7 +5,7 @@ import nxgen.messaging.client.event.Event;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 
-public interface CommandProducer
+public interface CommandExecutor
 {
-    CompletionStage<List<Event>> produceCommand(Event initEvent, CommandSpecification specification);
+    CompletionStage<List<Event>> execute(Event initEvent, CommandSpecification specification);
 }

@@ -31,11 +31,10 @@ class EventQueueListenerImpl implements Closeable, EventQueueListener
         this.groupId = groupId;
         this.brokerProperties = brokerProperties;
         this.eventConsumer = eventConsumer;
-        this.init();
     }
 
     @Override
-    public void init()
+    public void start()
     {
         executorService = Executors.newSingleThreadExecutor(r -> {
             Thread newThread = new Thread(r);
@@ -52,11 +51,10 @@ class EventQueueListenerImpl implements Closeable, EventQueueListener
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, EventDeserializer.class.getSimpleName());
         kafkaConsumer = new KafkaConsumer<>(properties);
         kafkaConsumer.subscribe(Collections.singleton(topicName));
-        executorService.execute(this::receive);
+        executorService.execute(this::poll);
     }
 
-    @Override
-    public void receive()
+    private void poll()
     {
         boolean running = true;
         while (running) {
