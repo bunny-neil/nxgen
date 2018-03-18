@@ -1,0 +1,4 @@
+nxgen.kafka.client.tests:
+  brokers:
+    bootstrapServers: PLAINTEXT://localhost:9092
+    securityProtocol: PLAINTEXT

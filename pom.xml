@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>nxgen-messaging-client</module>
-        <module>nxgen-messaging-client-tests</module>
+        <module>nxgen-kafka-client</module>
+        <module>nxgen-kafka-client-integration-tests</module>
     </modules>
 
     <parent>
@@ -48,7 +48,7 @@
             <!-- Internal dependencies -->
             <dependency>
                 <groupId>ca.mda.land</groupId>
-                <artifactId>nxgen-messaging-client</artifactId>
+                <artifactId>nxgen-kafka-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
