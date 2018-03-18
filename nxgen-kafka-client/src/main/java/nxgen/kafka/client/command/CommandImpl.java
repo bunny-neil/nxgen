@@ -55,11 +55,6 @@ class CommandImpl implements Command
         return futureEvents;
     }
 
-    public CompletableFuture<List<Event>> getFutureEvents()
-    {
-        return futureEvents;
-    }
-
     public void completeIfPossible(Event event)
     {
         eventList.add(event);
