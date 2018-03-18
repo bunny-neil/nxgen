@@ -2,7 +2,6 @@ package nxgen.messaging.client;
 
 import nxgen.messaging.client.config.BrokerProperties;
 import nxgen.messaging.client.event.Event;
-import nxgen.messaging.client.event.EventProducerFactory;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -30,7 +29,7 @@ public abstract class AbstractTests
 {
     @Autowired
     protected BrokerProperties brokerProperties;
-    protected EventProducerFactory eventProducerFactory;
+    protected MessageProducerFactory messageProducerFactory;
 
     private AdminClient adminClient;
     private List<NewTopic> topics = new ArrayList<>();
@@ -39,11 +38,11 @@ public abstract class AbstractTests
     public void setup()
     {
         if (adminClient == null) {
-            eventProducerFactory = new EventProducerFactory();
             Properties properties = new Properties();
             properties.putAll(brokerProperties.toPropertiesMap());
             properties.put(AdminClientConfig.REQUEST_TIMEOUT_MS_CONFIG, "" + 5000L);
             adminClient = AdminClient.create(properties);
+            messageProducerFactory = new MessageProducerFactory(brokerProperties);
         }
     }
 

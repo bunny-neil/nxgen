@@ -1,7 +1,7 @@
 package nxgen.messaging.client.command;
 
+import nxgen.messaging.client.MessageProducer;
 import nxgen.messaging.client.event.Event;
-import nxgen.messaging.client.event.EventProducer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,15 @@ class CommandImpl implements Command
 {
     private CommandSpecification specification;
     private Event initEvent;
-    private EventProducer eventProducer;
+    private MessageProducer<Event> eventProducer;
     private CommandManager commandManager;
     private List<Event> eventList = new ArrayList<>();
     private CompletableFuture<List<Event>> futureEvents = new CompletableFuture<>();
 
-    CommandImpl(CommandSpecification specification, Event initEvent, EventProducer eventProducer, CommandManager commandManager)
+    CommandImpl(CommandSpecification specification,
+                Event initEvent,
+                MessageProducer<Event> eventProducer,
+                CommandManager commandManager)
     {
         this.specification = specification;
         this.initEvent = initEvent;
@@ -44,7 +47,7 @@ class CommandImpl implements Command
     {
         try {
             commandManager.registerCommand(this);
-            eventProducer.produceEvent(initEvent)
+            eventProducer.produce(initEvent)
                     .get(specification.timeout(), specification.timeUnit());
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             futureEvents.completeExceptionally(e);

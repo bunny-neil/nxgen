@@ -1,6 +1,6 @@
 package nxgen.messaging.client;
 
-import nxgen.messaging.client.event.EventProducer;
+import nxgen.messaging.client.event.Event;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 @EnableAutoConfiguration
 public class EventProducerTests extends AbstractTests
 {
-    private EventProducer underTest;
+    private MessageProducer<Event> underTest;
     private String topicName;
 
     @Before
@@ -22,13 +22,13 @@ public class EventProducerTests extends AbstractTests
             super.setup();
             topicName = UUID.randomUUID().toString();
             createTopic(topicName, 1);
-            underTest = eventProducerFactory.createEventProducer(topicName, brokerProperties);
+            underTest = messageProducerFactory.createMessageProducer(topicName);
         }
     }
 
     @Test
     public void testProduceEvent() throws ExecutionException, InterruptedException
     {
-        Assert.assertNotNull(underTest.produceEvent(createEvent()).get());
+        Assert.assertNotNull(underTest.produce(createEvent()).get());
     }
 }

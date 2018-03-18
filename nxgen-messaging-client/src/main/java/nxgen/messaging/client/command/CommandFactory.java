@@ -1,17 +1,19 @@
 package nxgen.messaging.client.command;
 
+import nxgen.messaging.client.MessageProducer;
+import nxgen.messaging.client.MessageQueueListener;
 import nxgen.messaging.client.event.Event;
-import nxgen.messaging.client.event.EventProducer;
-import nxgen.messaging.client.event.EventQueueListener;
 
 public class CommandFactory
 {
     private CommandSpecification specification;
-    private EventProducer eventProducer;
-    private EventQueueListener eventQueueListener;
+    private MessageProducer<Event> eventProducer;
+    private MessageQueueListener<Event> eventQueueListener;
     private CommandManager commandManager;
 
-    public CommandFactory(CommandSpecification specification, EventProducer eventProducer, EventQueueListener eventQueueListener)
+    public CommandFactory(CommandSpecification specification,
+                          MessageProducer<Event> eventProducer,
+                          MessageQueueListener<Event> eventQueueListener)
     {
         this.specification = specification;
         this.eventProducer = eventProducer;

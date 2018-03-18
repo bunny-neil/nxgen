@@ -1,7 +1,7 @@
 package nxgen.messaging.client.command;
 
+import nxgen.messaging.client.MessageConsumer;
 import nxgen.messaging.client.event.Event;
-import nxgen.messaging.client.event.EventConsumer;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-class CommandManager implements EventConsumer
+class CommandManager implements MessageConsumer<Event>
 {
     private Map<String, CommandImpl> idsAndCommands = new HashMap<>();
 
