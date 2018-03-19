@@ -13,10 +13,9 @@ class CommandManager implements MessageConsumer<Event>
 {
     private Map<String, CommandImpl> idsAndCommands = new HashMap<>();
 
-    public CommandImpl registerCommand(CommandImpl command)
+    void registerCommand(CommandImpl command)
     {
         idsAndCommands.put(command.getInitEvent().getId(), command);
-        return command;
     }
 
     public void consume(Event event)

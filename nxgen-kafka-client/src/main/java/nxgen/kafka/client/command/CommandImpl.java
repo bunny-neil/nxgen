@@ -55,7 +55,7 @@ class CommandImpl implements Command
         return futureEvents;
     }
 
-    public void completeIfPossible(Event event)
+    void completeIfPossible(Event event)
     {
         eventList.add(event);
         if (specification.shouldStop(event)) {
@@ -63,12 +63,12 @@ class CommandImpl implements Command
         }
     }
 
-    public boolean isDone()
+    boolean isDone()
     {
         return futureEvents.isDone();
     }
 
-    public boolean timeoutIfNecessary()
+    boolean timeoutIfNecessary()
     {
         boolean isExpired = System.currentTimeMillis() - initEvent.getDateCreated().getTime()
                 >= specification.timeUnit().toMillis(specification.timeout());
