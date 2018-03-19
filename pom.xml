@@ -15,21 +15,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <properties>
+        <java.version>1.8</java.version>
         <avro.version>1.8.2</avro.version>
         <kafka.version>1.0.1</kafka.version>
         <snappy.java.version>1.1.4</snappy.java.version>
@@ -40,7 +30,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M8</version>
+                <version>Edgware.SR2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
